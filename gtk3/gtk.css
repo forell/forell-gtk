@@ -1,0 +1,317 @@
+/* base theme */
+* {
+    -GtkDialog-action-area-border: 0;
+}
+
+*:disabled {
+  -gtk-icon-effect: dim;
+}
+
+.background {
+    color: @fg_color;
+    background: @bg_color;
+}
+
+headerbar {
+    min-height: 32px;
+    background: @bg_color;
+}
+
+messagedialog {
+    box-shadow inset 0 0 0 2px @bg_dark_color;
+}
+
+/* menu */
+menuitem {
+    min-height: 32px;
+    padding: 0 8px;
+}
+
+menuitem:hover {
+    background: @bg_hover_color;
+}
+
+menuitem:disabled {
+    color: @insensitive_fg_color;
+}
+
+/* entry, input */
+entry {
+    padding: 2px 8px;
+    transition: all 0.2s ease;
+    color: @fg_color;
+    background: @bg_light_color;
+}
+
+entry:focus {
+    box-shadow: inset 2px 0 @fg_accent_color, inset -2px 0 @fg_accent_color, inset 0 2px @fg_accent_color, inset 0 -2px @fg_accent_color;
+}
+
+entry:disabled {
+    color: @insensitive_fg_color;
+    background: @insensitive_bg_light_color;
+}
+
+textview {
+    background: @bg_light_color;
+}
+
+/* buttons */
+button {
+    min-height: 22px;
+    min-width: 20px;
+    background: @bg_light_color;
+    transition: all 0.2s ease;
+    padding: 2px 6px;
+}
+
+button separator {
+    margin: 4px 1px;
+}
+
+button:hover {
+    background: @bg_hover_color;
+    -gtk-icon-effect: highlight;
+}
+
+button:active, button:checked {
+    background: @bg_accent_color;
+}
+
+button:disabled {
+    background: @insensitive_bg_light_color;
+}
+
+button:disabled label, button:disabled, spinbutton:insensitive {
+    color: @insensitive_fg_color;
+}
+
+button:disabled:active, button:disabled:checked {
+    background: @insensitive_bg_accent_color;
+}
+
+/* toolbar */
+toolbar {
+    padding: 2px;
+}
+
+toolbar button,
+toolbar entry {
+    margin: 0 4px;
+}
+
+toolbar button, toolbar button:insensitive {
+    background: unset;
+}
+
+/* switch */
+switch {
+    font-size: 1px;
+    min-width: 52px;
+    min-height: 24px;
+    background-size: 52px 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: -gtk-scaled(url("assets/switch.png"), url("assets/switch@2.png"));
+}
+
+switch slider {
+    min-width: 1px;
+    min-height: 1px;
+}
+
+switch, switch slider {
+    outline-color: transparent;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+switch:checked {
+    background-image: -gtk-scaled(url("assets/switch-active.png"), url("assets/switch-active@2.png"));
+}
+
+switch:disabled {
+    background-image: -gtk-scaled(url("assets/switch-insensitive.png"), url("assets/switch-insensitive@2.png"));
+}
+
+/* tabs */
+notebook > header.top {
+    padding-bottom: 3px;
+    box-shadow: inset 0 -3px @bg_light_color;
+}
+
+notebook > header.bottom {
+    padding-top: 3px;
+    box-shadow: inset 0 3px @bg_light_color;
+}
+
+notebook > header.left {
+    padding-right: 3px;
+    box-shadow: inset -3px 0 @bg_light_color;
+}
+
+notebook > header.right{
+    padding-left: 3px;
+    box-shadow: inset 3px 0 @bg_light_color;
+}
+
+notebook > header > tabs > tab {
+    color: @fg_color;
+    background-color: @bg_color;
+    padding: 4px 8px;
+}
+
+notebook > header > tabs > tab:hover:not(:checked) {
+    color: @fg_color;
+    background-color: @insensitive_bg_light_color;
+}
+
+notebook > header.top > tabs > tab:checked {
+    color: @selected_fg_color;
+    background-color: @bg_light_color;
+    box-shadow: inset 0 3px @fg_accent_color;
+}
+
+notebook > header.bottom > tabs > tab:checked {
+    color: @selected_fg_color;
+    background-color: @bg_light_color;
+    box-shadow: inset 0 -3px @fg_accent_color;
+}
+
+notebook > header.left > tabs > tab:checked {
+    color: @selected_fg_color;
+    background-color: @bg_light_color;
+    box-shadow: inset 3px 0 @fg_accent_color;
+}
+
+notebook > header.right > tabs > tab:checked {
+    color: @selected_fg_color;
+    background-color: @bg_light_color;
+    box-shadow: inset -3px 0 @fg_accent_color;
+}
+
+/* progressbars, sliders etc */
+progressbar trough, scale trough {
+    background: @bg_light_color;
+    min-height: 10px;
+    min-width: 10px;
+}
+
+scale.horizontal {
+    margin: 5px 0;
+}
+
+scale.vertical {
+    margin: 0 5px;
+}
+
+progressbar progress, scale highlight {
+    background: @bg_accent_color;
+}
+
+progressbar.horizontal progress {
+    min-height: 10px;
+}
+
+progressbar.vertical progress {
+    min-width: 10px;
+}
+
+scale highlight:disabled {
+    background: @insensitive_bg_accent_color;
+}
+
+scale marks {
+    color: @insensitive_fg_color;
+}
+
+scale.horizontal indicator {
+    min-height: 3px;
+    min-width: 1px;
+}
+
+scale.vertical indicator {
+    min-height: 1px;
+    min-width: 3px;
+}
+
+/* scrolling */
+scrolledwindow undershoot.top, 
+scrolledwindow undershoot.bottom {
+    background-image: linear-gradient(to left, @insensitive_fg_color 50%, transparent 50%);
+    background-size: 20px 2px;
+    background-repeat: repeat-x;
+    background-origin: content-box;
+}
+
+scrolledwindow undershoot.top {
+    background-position: top;
+}
+
+scrolledwindow undershoot.bottom {
+    background-position: bottom;
+}
+
+scrolledwindow undershoot.left,
+scrolledwindow undershoot.right {
+    background-image: linear-gradient(to top, @insensitive_fg_color 50%, transparent 50%);
+    background-size: 2px 20px;
+    background-repeat: repeat-y;
+    background-origin: content-box;
+}
+
+scrolledwindow undershoot.left {
+    background-position: left;
+}
+
+scrolledwindow undershoot.right {
+    background-position: right;
+}
+
+@define-color fg_color #c4c4c4;
+@define-color text_color #c4c4c4;
+@define-color bg_color #181818;
+@define-color base_color #181818;
+@define-color selected_bg_color #802626;
+@define-color selected_fg_color #ffffff;
+
+@define-color bg_dark_color #121212;
+@define-color bg_light_color #242424;
+@define-color bg_hover_color #2a2a2a;
+@define-color fg_accent_color #802626;
+@define-color bg_accent_color #802626;
+
+@define-color insensitive_bg_accent_color alpha(#802626, 0.5);
+@define-color insensitive_fg_accent_color alpha(#802626, 0.5);
+
+@define-color insensitive_bg_light_color alpha(#242424, 0.5);
+
+@define-color theme_fg_color #c4c4c4;
+@define-color theme_text_color #c4c4c4;
+@define-color theme_bg_color #181818;
+@define-color theme_base_color #181818;
+
+@define-color theme_selected_bg_color #802626;
+@define-color theme_selected_fg_color #ffffff;
+
+@define-color insensitive_bg_color #181818;
+@define-color insensitive_fg_color alpha(#c4c4c4, 0.5);
+@define-color insensitive_base_color #181818;
+
+@define-color theme_unfocused_fg_color #c4c4c4;
+@define-color theme_unfocused_text_color #c4c4c4;
+@define-color theme_unfocused_bg_color #181818;
+@define-color theme_unfocused_base_color #181818;
+
+@define-color warning_color #d27049;
+@define-color error_color #802626;
+@define-color success_color #5e6d36;
+
+@define-color placeholder_text_color #737373;
+@define-color link_color #737373;
+@define-color content_view_bg #181818;
+@define-color wm_title #c4c4c4;
+@define-color wm_unfocused_title alpha(#c4c4c4, 0.5);
+@define-color wm_bg #181818;
+@define-color wm_bg_unfocused #181818;
