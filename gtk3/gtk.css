@@ -1,10 +1,11 @@
 /* base theme */
 * {
     -GtkDialog-action-area-border: 0;
+
 }
 
 *:disabled {
-  -gtk-icon-effect: dim;
+    -gtk-icon-effect: dim;
 }
 
 .background {
@@ -17,9 +18,26 @@ headerbar {
     background: @bg_color;
 }
 
-messagedialog {
-    box-shadow inset 0 0 0 2px @bg_dark_color;
+/* various selections */
+*:selected,
+*:selected:focus {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
 }
+
+rubberband, flowbox rubberband, treeview.view rubberband, .content-view rubberband,
+.rubberband {
+    border: 1px solid @bg_accent_color;
+    background-color: @insensitive_bg_accent_color;
+}
+
+.view:selected, .view text:selected, .view text selection,
+iconview:selected, iconview text:selected, iconview text selection,
+textview text:selected, textview text selection,
+entry selection {
+  background-color: @bg_accent_color;
+}
+
 
 /* menu */
 menuitem {
@@ -41,6 +59,7 @@ entry {
     transition: all 0.2s ease;
     color: @fg_color;
     background: @bg_light_color;
+    caret-color: currentColor;
 }
 
 entry:focus {
@@ -58,11 +77,18 @@ textview {
 
 /* buttons */
 button {
-    min-height: 22px;
+    min-height: 20px;
     min-width: 20px;
-    background: @bg_light_color;
     transition: all 0.2s ease;
     padding: 2px 6px;
+}
+
+button {
+    background: @bg_light_color;
+}
+
+button.flat, button.titlebutton, button.image-button {
+    background: unset;
 }
 
 button separator {
@@ -78,11 +104,11 @@ button:active, button:checked {
     background: @bg_accent_color;
 }
 
-button:disabled {
+button:disabled:not(.flat) {
     background: @insensitive_bg_light_color;
 }
 
-button:disabled label, button:disabled, spinbutton:insensitive {
+button:disabled label, button:disabled, spinbutton:disabled {
     color: @insensitive_fg_color;
 }
 
@@ -98,10 +124,6 @@ toolbar {
 toolbar button,
 toolbar entry {
     margin: 0 4px;
-}
-
-toolbar button, toolbar button:insensitive {
-    background: unset;
 }
 
 /* switch */
@@ -274,7 +296,7 @@ scrolledwindow undershoot.right {
 @define-color bg_color #181818;
 @define-color base_color #181818;
 @define-color selected_bg_color #802626;
-@define-color selected_fg_color #ffffff;
+@define-color selected_fg_color #c4c4c4;
 
 @define-color bg_dark_color #121212;
 @define-color bg_light_color #242424;
@@ -293,7 +315,7 @@ scrolledwindow undershoot.right {
 @define-color theme_base_color #181818;
 
 @define-color theme_selected_bg_color #802626;
-@define-color theme_selected_fg_color #ffffff;
+@define-color theme_selected_fg_color #c4c4c4;
 
 @define-color insensitive_bg_color #181818;
 @define-color insensitive_fg_color alpha(#c4c4c4, 0.5);
