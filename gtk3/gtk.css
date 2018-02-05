@@ -261,8 +261,8 @@ scale.vertical indicator {
 /* scrolling */
 scrolledwindow undershoot.top, 
 scrolledwindow undershoot.bottom {
-    background-image: linear-gradient(to left, @insensitive_fg_color 50%, transparent 50%);
-    background-size: 20px 2px;
+    background-image: linear-gradient(to left, alpha(@bg_dark_color, 0.5) 50%, alpha(@bg_light_color, 0.5) 50%);
+    background-size: 15px 2px;
     background-repeat: repeat-x;
     background-origin: content-box;
 }
@@ -277,8 +277,8 @@ scrolledwindow undershoot.bottom {
 
 scrolledwindow undershoot.left,
 scrolledwindow undershoot.right {
-    background-image: linear-gradient(to top, @insensitive_fg_color 50%, transparent 50%);
-    background-size: 2px 20px;
+    background-image: linear-gradient(to top, alpha(@bg_dark_color, 0.5) 50%, alpha(@bg_light_color, 0.5) 50%);
+    background-size: 2px 15px;
     background-repeat: repeat-y;
     background-origin: content-box;
 }
@@ -289,6 +289,31 @@ scrolledwindow undershoot.left {
 
 scrolledwindow undershoot.right {
     background-position: right;
+}
+
+/* scrollbar */
+* {
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
+}
+
+scrollbar {
+    background-color: @bg_color;
+}
+
+scrollbar slider {
+    min-width: 10px;
+    min-height: 10px;
+    background-color: @bg_light_color;
+    margin: 2px;
+}
+
+scrollbar slider:hover {
+    background-color: @bg_hover_color;
+}
+
+scrollbar slider:active {
+    background-color: @bg_accent_color;
 }
 
 @define-color fg_color #c4c4c4;
