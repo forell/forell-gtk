@@ -316,6 +316,11 @@ scrollbar slider:active {
     background-color: @bg_accent_color;
 }
 
+/* popups */
+popover {
+    border: 2px solid alpha(@bg_dark_color, 0.3);
+}
+
 @define-color fg_color #c4c4c4;
 @define-color text_color #c4c4c4;
 @define-color bg_color #181818;
