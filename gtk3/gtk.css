@@ -335,6 +335,11 @@ popover {
     border: 2px solid alpha(@bg_dark_color, 0.3);
 }
 
+/* links */
+*:link, *:link:visited, *:link:hover, *:link:active  {
+    color: @fg_accent_color;
+}
+
 @define-color fg_color #c4c4c4;
 @define-color text_color #c4c4c4;
 @define-color bg_color #181818;
