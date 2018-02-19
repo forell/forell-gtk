@@ -338,6 +338,7 @@ popover {
 /* links */
 *:link, *:link:visited, *:link:hover, *:link:active  {
     color: @link_color;
+    background: unset;
 }
 
 @define-color fg_color #c4c4c4;
