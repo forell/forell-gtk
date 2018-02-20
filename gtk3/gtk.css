@@ -335,6 +335,12 @@ popover {
     border: 2px solid alpha(@bg_dark_color, 0.3);
 }
 
+/* links */
+*:link, *:link:visited, *:link:hover, *:link:active  {
+    color: @link_color;
+    background: unset;
+}
+
 @define-color fg_color #c4c4c4;
 @define-color text_color #c4c4c4;
 @define-color bg_color #181818;
@@ -375,7 +381,7 @@ popover {
 @define-color success_color #5e6d36;
 
 @define-color placeholder_text_color #737373;
-@define-color link_color #737373;
+@define-color link_color #802626;
 @define-color content_view_bg #181818;
 @define-color wm_title #c4c4c4;
 @define-color wm_unfocused_title alpha(#c4c4c4, 0.5);
