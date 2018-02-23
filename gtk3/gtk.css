@@ -18,6 +18,12 @@ headerbar {
     background: @bg_color;
 }
 
+frame {
+    /* Fixes the issue with a white line under FF's navbar and a few other
+     * things using ThreeDShadow */
+    border-color: @bg_color;
+}
+
 /* various selections */
 *:selected,
 *:selected:focus {
