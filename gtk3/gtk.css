@@ -69,7 +69,7 @@ entry {
 }
 
 entry:focus {
-    box-shadow: inset 2px 0 @fg_accent_color, inset -2px 0 @fg_accent_color, inset 0 2px @fg_accent_color, inset 0 -2px @fg_accent_color;
+    box-shadow: inset 2px 0 @bg_accent_color, inset -2px 0 @bg_accent_color, inset 0 2px @bg_accent_color, inset 0 -2px @bg_accent_color;
 }
 
 entry:disabled {
@@ -198,25 +198,25 @@ notebook > header > tabs > tab:hover:not(:checked) {
 notebook > header.top > tabs > tab:checked {
     color: @selected_fg_color;
     background-color: @bg_light_color;
-    box-shadow: inset 0 3px @fg_accent_color;
+    box-shadow: inset 0 3px @bg_accent_color;
 }
 
 notebook > header.bottom > tabs > tab:checked {
     color: @selected_fg_color;
     background-color: @bg_light_color;
-    box-shadow: inset 0 -3px @fg_accent_color;
+    box-shadow: inset 0 -3px @bg_accent_color;
 }
 
 notebook > header.left > tabs > tab:checked {
     color: @selected_fg_color;
     background-color: @bg_light_color;
-    box-shadow: inset 3px 0 @fg_accent_color;
+    box-shadow: inset 3px 0 @bg_accent_color;
 }
 
 notebook > header.right > tabs > tab:checked {
     color: @selected_fg_color;
     background-color: @bg_light_color;
-    box-shadow: inset -3px 0 @fg_accent_color;
+    box-shadow: inset -3px 0 @bg_accent_color;
 }
 
 /* progressbars, sliders etc */
@@ -348,48 +348,48 @@ popover {
 }
 
 @define-color fg_color #c4c4c4;
-@define-color text_color #c4c4c4;
+@define-color text_color @fg_color;
 @define-color bg_color #181818;
-@define-color base_color #181818;
+@define-color base_color @bg_color;
 @define-color selected_bg_color #802626;
-@define-color selected_fg_color #c4c4c4;
+@define-color selected_fg_color @fg_color;
 
 @define-color bg_dark_color #121212;
 @define-color bg_light_color #242424;
 @define-color bg_hover_color #2a2a2a;
-@define-color fg_accent_color #802626;
+@define-color fg_accent_color #993131;
 @define-color bg_accent_color #802626;
 
-@define-color insensitive_bg_accent_color alpha(#802626, 0.5);
-@define-color insensitive_fg_accent_color alpha(#802626, 0.5);
+@define-color insensitive_bg_accent_color alpha(@bg_accent_color, 0.5);
+@define-color insensitive_fg_accent_color alpha(@fg_accent_color, 0.5);
 
 @define-color insensitive_bg_light_color alpha(#242424, 0.5);
 
-@define-color theme_fg_color #c4c4c4;
-@define-color theme_text_color #c4c4c4;
-@define-color theme_bg_color #181818;
-@define-color theme_base_color #181818;
+@define-color theme_fg_color @fg_color;
+@define-color theme_text_color @text_color;
+@define-color theme_bg_color @bg_color;
+@define-color theme_base_color @base_color;
 
-@define-color theme_selected_bg_color #802626;
-@define-color theme_selected_fg_color #c4c4c4;
+@define-color theme_selected_bg_color @bg_accent_color;
+@define-color theme_selected_fg_color @selected_fg_color;
 
-@define-color insensitive_bg_color #181818;
-@define-color insensitive_fg_color alpha(#c4c4c4, 0.5);
-@define-color insensitive_base_color #181818;
+@define-color insensitive_bg_color @bg_color;
+@define-color insensitive_fg_color alpha(@fg_color, 0.5);
+@define-color insensitive_base_color @base_color;
 
-@define-color theme_unfocused_fg_color #c4c4c4;
-@define-color theme_unfocused_text_color #c4c4c4;
-@define-color theme_unfocused_bg_color #181818;
-@define-color theme_unfocused_base_color #181818;
+@define-color theme_unfocused_fg_color @fg_color;
+@define-color theme_unfocused_text_color @text_color;
+@define-color theme_unfocused_bg_color @bg_color;
+@define-color theme_unfocused_base_color @base_color;
 
 @define-color warning_color #d27049;
 @define-color error_color #802626;
 @define-color success_color #5e6d36;
 
 @define-color placeholder_text_color #737373;
-@define-color link_color #802626;
-@define-color content_view_bg #181818;
-@define-color wm_title #c4c4c4;
-@define-color wm_unfocused_title alpha(#c4c4c4, 0.5);
-@define-color wm_bg #181818;
-@define-color wm_bg_unfocused #181818;
+@define-color link_color @fg_accent_color;
+@define-color content_view_bg @bg_color;
+@define-color wm_title @fg_color;
+@define-color wm_unfocused_title @insensitive_fg_color;
+@define-color wm_bg @bg_color;
+@define-color wm_bg_unfocused @bg_color;
