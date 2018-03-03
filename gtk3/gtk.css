@@ -45,10 +45,17 @@ entry selection {
 }
 
 
-/* menu */
-menuitem {
-    min-height: 32px;
-    padding: 0 8px;
+menubar > menuitem {
+    padding: 4px 8px;
+}
+
+menu menuitem {
+    min-height: 24px;
+    padding: 4px;
+}
+
+menu separator {
+    margin: 6px;
 }
 
 menuitem:hover {
