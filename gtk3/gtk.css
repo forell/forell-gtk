@@ -50,7 +50,7 @@ menubar > menuitem {
 }
 
 menu menuitem {
-    min-height: 24px;
+    min-height: 20px;
     padding: 4px;
 }
 
@@ -141,33 +141,27 @@ toolbar entry {
 
 /* switch */
 switch {
-    font-size: 1px;
-    min-width: 52px;
+    /* font-size: 1px; */
+    /* color: transparent; */
     min-height: 24px;
-    background-size: 52px 24px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: -gtk-scaled(url("assets/switch.png"), url("assets/switch@2.png"));
+    min-width: 44px;
+    background: @bg_light_color;
+    transition: all 0.2s ease;
 }
 
 switch slider {
-    min-width: 1px;
-    min-height: 1px;
-}
-
-switch, switch slider {
-    outline-color: transparent;
-    color: transparent;
-    border: none;
-    box-shadow: none;
+    margin: 2px;
+    min-width: 20px;
+    min-height: 20px;
+    background: @bg_color;
 }
 
 switch:checked {
-    background-image: -gtk-scaled(url("assets/switch-active.png"), url("assets/switch-active@2.png"));
+    background: @bg_accent_color;
 }
 
 switch:disabled {
-    background-image: -gtk-scaled(url("assets/switch-insensitive.png"), url("assets/switch-insensitive@2.png"));
+    background: @insensitive_bg_light_color;
 }
 
 /* tabs */
