@@ -1,7 +1,6 @@
 /* base theme */
 * {
     -GtkDialog-action-area-border: 0;
-
 }
 
 *:disabled {
@@ -18,30 +17,38 @@ headerbar {
     background: @bg_color;
 }
 
+/* containers, boxes, frames */
 frame {
     /* Fixes the issue with a white line under FF's navbar and a few other
      * things using ThreeDShadow */
     border-color: @bg_color;
 }
 
+paned > separator {
+    min-width: 3px;
+    min-height: 3px;
+    -gtk-icon-source: none;
+    background: @bg_light_color;
+}
+
 /* various selections */
 *:selected,
 *:selected:focus {
-    background-color: @theme_selected_bg_color;
+    background: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
 }
 
 rubberband, flowbox rubberband, treeview.view rubberband, .content-view rubberband,
 .rubberband {
     border: 1px solid @bg_accent_color;
-    background-color: @insensitive_bg_accent_color;
+    background: @insensitive_bg_accent_color;
 }
 
 .view:selected, .view text:selected, .view text selection,
 iconview:selected, iconview text:selected, iconview text selection,
 textview text:selected, textview text selection,
 entry selection {
-  background-color: @bg_accent_color;
+    background: @bg_accent_color;
 }
 
 
@@ -69,10 +76,10 @@ menuitem:disabled {
 /* entry, input */
 entry {
     padding: 2px 8px;
-    transition: all 0.2s ease;
     color: @fg_color;
     background: @bg_light_color;
     caret-color: currentColor;
+    transition: all 0.2s ease;
 }
 
 entry:focus {
@@ -90,10 +97,10 @@ textview {
 
 /* buttons */
 button {
-    min-height: 20px;
     min-width: 20px;
-    transition: all 0.2s ease;
+    min-height: 20px;
     padding: 2px 6px;
+    transition: all 0.2s ease;
 }
 
 button {
@@ -141,18 +148,19 @@ toolbar entry {
 
 /* switch */
 switch {
-    /* font-size: 1px; */
-    /* color: transparent; */
-    min-height: 24px;
     min-width: 44px;
+    min-height: 24px;
+    font-size: 1px;
+    color: transparent;
     background: @bg_light_color;
+    border: 2px solid @bg_dark_color;
     transition: all 0.2s ease;
 }
 
 switch slider {
-    margin: 2px;
     min-width: 20px;
     min-height: 20px;
+    margin: 2px;
     background: @bg_color;
 }
 
@@ -162,6 +170,47 @@ switch:checked {
 
 switch:disabled {
     background: @insensitive_bg_light_color;
+}
+
+/* checkboxes and radiobuttons */
+check, radio {
+	margin-left: 8px;
+	margin-right: 8px;
+    color: @bg_color;
+    background: @bg_light_color;
+    transition: all 0.2s ease;
+}
+
+check:checked, check:indeterminate,
+radio:checked, radio:indeterminate {
+    background: @bg_accent_color;
+}
+
+check:checked {
+    -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/check-symbolic.png")),
+                                  -gtk-recolor(url("assets/check@2-symbolic.png")));
+}
+
+radio:checked {
+    -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/bullet-symbolic.png")),
+                                  -gtk-recolor(url("assets/bullet@2-symbolic.png")));
+}
+
+check:indeterminate, radio:indeterminate {
+    -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/dash-symbolic.png")),
+                                  -gtk-recolor(url("assets/dash@2-symbolic.png")));
+}
+
+radio {
+    border-radius: 100%;
+}
+
+check:disabled, radio:disabled {
+    background: @insensitive_bg_light_color;
+}
+
+check:checked:disabled, radio:checked:disabled {
+    background: @insensitive_bg_accent_color;
 }
 
 /* tabs */
@@ -186,9 +235,9 @@ notebook > header.right{
 }
 
 notebook > header > tabs > tab {
+    padding: 4px 8px;
     color: @fg_color;
     background-color: @bg_color;
-    padding: 4px 8px;
 }
 
 notebook > header > tabs > tab:hover:not(:checked) {
@@ -222,9 +271,9 @@ notebook > header.right > tabs > tab:checked {
 
 /* progressbars, sliders etc */
 progressbar trough, scale trough {
-    background: @bg_light_color;
     min-height: 10px;
     min-width: 10px;
+    background: @bg_light_color;
 }
 
 scale.horizontal {
@@ -256,13 +305,13 @@ scale marks {
 }
 
 scale.horizontal indicator {
-    min-height: 3px;
     min-width: 1px;
+    min-height: 3px;
 }
 
 scale.vertical indicator {
-    min-height: 1px;
     min-width: 3px;
+    min-height: 1px;
 }
 
 /* scrolling */
@@ -305,24 +354,24 @@ scrolledwindow undershoot.right {
 }
 
 scrollbar {
-    background-color: @bg_color;
+    background: @bg_color;
     transition: all 0.2s ease;
 }
 
 scrollbar slider {
     min-width: 10px;
     min-height: 10px;
-    background-color: @bg_light_color;
+    background: @bg_light_color;
     margin: 2px;
     transition: all 0.2s ease;
 }
 
 scrollbar slider:hover {
-    background-color: @bg_hover_color;
+    background: @bg_hover_color;
 }
 
 scrollbar slider:active {
-    background-color: @bg_accent_color;
+    background: @bg_accent_color;
 }
 
 scrollbar.overlay-indicator:not(.hovering) {
